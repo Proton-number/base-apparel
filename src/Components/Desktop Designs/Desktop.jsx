@@ -10,22 +10,15 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 function Desktop() {
   return (
-    <Paper 
-    id='desktop-view'   
-     sx={{
-      width:{
-          sm: '44em', //600
-          lg: '80em' //1200s
-      },
-      borderRadius:'24px'
-  }}
-  style={{ display: 'flex'}}  
-  >
+    <Paper id='desktop-view' style={{ display: 'flex', borderRadius:'20px'}}  >
       
-    <Stack  p={12} spacing={8}>
+    <Stack p={{ lg: '55px'}} spacing={8}>
     
     <Box >
-    <Box component='img' src={logo} style={{borderRadius:'30px'}}/>
+    <Box 
+    component='img' 
+    src={logo} 
+    />
     </Box>
 
 
@@ -33,7 +26,15 @@ function Desktop() {
 
         <Typography variant= 'h1' style={{textTransform:'uppercase', width: '90%'}} > We're <b>Coming soon</b> </Typography>
 
-        <Typography variant='subtitle1'>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up to date with announcements and our launch deals.</Typography>
+        <Typography sx={{ 
+          width:{
+            lg: '70%'
+          }
+        }}
+         variant='subtitle1'
+         >
+           Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up to date with announcements and our launch deals.
+           </Typography>
 
     </Stack>
 
@@ -46,7 +47,11 @@ function Desktop() {
            <IconButton><ArrowForwardIosIcon/></IconButton>
         </InputAdornment>
        }} 
-       style={{width:'90%'}}
+      sx={{
+        width:{
+          lg: '60%' //1200
+        }
+      }}
        />
     </Box>
 
@@ -54,7 +59,24 @@ function Desktop() {
     </Stack>
 
     <Box>
-        <Box component='img' src={heroDesktop}/>
+        <Box 
+        component='img' 
+        src={heroDesktop}
+        sx={{
+          width:{
+          lg: '520px' //1200 
+        }, 
+        height:{
+          lg: '770px' //1200 
+        },
+        borderTopRightRadius:{
+          lg: '20px'
+        },
+        borderBottomRightRadius:{
+          lg: '20px'
+        }
+      }}
+        />
     </Box>
     
 
