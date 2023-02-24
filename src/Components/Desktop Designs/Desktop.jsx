@@ -1,33 +1,54 @@
-import { Box, Paper, Typography, Container } from '@mui/material'
+import { Box, Paper, Typography, Stack, TextField, InputAdornment, IconButton  } from '@mui/material'
 import React, { Component } from 'react'
 import logo from '/src/images/logo.svg'
 import heroDesktop from "/src/images/hero-desktop.jpg"
 import arrow from "/src/images/icon-arrow.svg"
 import pattern from "/src/images/bg-pattern-desktop.svg"
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 // /src/images/icon-error.svg
 
 function Desktop() {
   return (
-    <Paper id='desktop-view'>
+    <Paper id='desktop-view' style={{ display: 'flex', borderRadius:'20px'}}  >
       
-    <Box>
-    <Box component='img' src={logo} />
+    <Stack  p={12} spacing={8}>
+    
+    <Box >
+    <Box component='img' src={logo} style={{borderRadius:'30px'}}/>
     </Box>
 
 
-    <Container>
+    <Stack spacing={2}>
 
-        <Typography variant= 'h1' style={{textTransform:'uppercase'}} > We're <b>Coming soon</b> </Typography>
+        <Typography variant= 'h1' style={{textTransform:'uppercase', width: '90%'}} > We're <b>Coming soon</b> </Typography>
 
         <Typography variant='subtitle1'>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up to date with announcements and our launch deals.</Typography>
 
-    </Container>
+    </Stack>
 
 {/* INPUTFIELDS!! */}
     <Box>
-
+       <TextField 
+       label='Email Address' 
+       InputProps={{
+        endAdornment: <InputAdornment position='end'>
+           <IconButton><ArrowForwardIosIcon/></IconButton>
+        </InputAdornment>
+       }} 
+       style={{width:'90%'}}
+       />
     </Box>
+
+
+    </Stack>
+
+    <Box>
+        <Box component='img' src={heroDesktop}/>
+    </Box>
+    
+
+
 
     </Paper>
   )
