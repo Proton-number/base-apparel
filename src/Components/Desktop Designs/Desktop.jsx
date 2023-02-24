@@ -10,7 +10,17 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 function Desktop() {
   return (
-    <Paper id='desktop-view' style={{ display: 'flex', borderRadius:'20px'}}  >
+    <Paper 
+    id='desktop-view'   
+     sx={{
+      width:{
+          sm: '44em', //600
+          lg: '80em' //1200s
+      },
+      borderRadius:'24px'
+  }}
+  style={{ display: 'flex'}}  
+  >
       
     <Stack  p={12} spacing={8}>
     
