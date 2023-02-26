@@ -7,10 +7,15 @@ span{
 }
 
 
+
 @media screen and (min-width:760px) {
     
     #desktop-view{
         display: block;
+        background-image: url('/src/images/bg-pattern-desktop.svg');
+        background-size: 699px 584px;
+        background-position: 2px 1px;
+        background-repeat: no-repeat;
     }
     
 

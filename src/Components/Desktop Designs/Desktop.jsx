@@ -1,37 +1,56 @@
-import { Box, Paper, Typography, Stack, TextField, InputAdornment, IconButton  } from '@mui/material'
-import React, { Component } from 'react'
-import {  createTheme, ThemeProvider  } from '@mui/material'
+import { Box, Paper, Typography, Stack, TextField, InputAdornment, IconButton , createTheme, ThemeProvider } from '@mui/material'
+import React, { useState } from 'react'
 import './Desktop.css'
 import logo from '/src/images/logo.svg'
 import heroDesktop from "/src/images/hero-desktop.jpg"
-import arrow from "/src/images/icon-arrow.svg"
-import pattern from "/src/images/bg-pattern-desktop.svg"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ReportIcon from '@mui/icons-material/Report';
+import { motion } from 'framer-motion'
 
 
-// /src/images/icon-error.svg
 
 function Desktop() {
 
+  const [emailText, setEmailText] = useState('')
+  const [emailError, setEmailError] = useState('')
+  const [errorColor, setErrorColor] = useState(false)
+
+
 
   
-  const theme = createTheme({
-    typography:{
-  fontFamily: 'Josefin Sans, sans-serif'
- 
+const btnHandler = () =>{
+  if ( !emailText.includes('@')  ){
+    setEmailError('Please provide a valid email')
+    setErrorColor(true)
+    } 
+    else{
+      setErrorColor(false)
+      setEmailText(emailText)
     }
- })
+}
+
+
+const cautionTheme = createTheme({
+  palette:{
+    primary:{
+          main:'hsla(0, 95%, 50%, 0.87)',
+      }
+  },
+
+ 
+})
+      
 
   return (
     <Paper 
     id='desktop-view' 
     sx={{
+     
       height:{
         sm: '720px' , //600
         lg: '733px' //1200
       },
       borderRadius:'30px',
-      position:'relative'
     }}
     elevation={8}
     >
@@ -40,14 +59,14 @@ function Desktop() {
 
    <Stack 
     p={{ 
-      sm: '30px' , //600
+      sm: '20px' , //600
       lg: '54px' //1200
     }} 
-    spacing={8}
-    sx={{position:'relative'}}
+    spacing={5}
+   
     >
     
-    <Box >
+    <Box  >
     <Box 
     component='img' 
     src={logo} 
@@ -55,22 +74,33 @@ function Desktop() {
     </Box>
 
 
-    <Stack spacing={2}>
+    <Stack spacing={2}  >
 
-      <ThemeProvider theme={theme}>
-      <Typography variant= 'h1'  style={{textTransform:'uppercase'}} >  <span> We're</span> <b>Coming soon</b> </Typography>
+      <Typography 
+      component={motion.h1} 
+      variant= 'h1'  
+      style={{textTransform:'uppercase'}} 
+      sx={{fontSize:{sm:'83px', lg:'110px'}}} 
+      initial={{opacity:0}} 
+      animate={{opacity:1}}  
+      transition={{delay:.2}}
+      >  
+      <span> We're</span> <b>Coming soon</b> 
+      </Typography>
 
 <Typography sx={{ 
-  width:{
-    lg: '98%'
-  },
-  color:'hsl(4, 46%, 70%)'
+  fontWeight:700 ,
+  color:'hsl(4, 46%, 70%)',
 }}
+component={motion.p}
  variant='subtitle1'
+ initial={{opacity:0}} 
+ animate={{opacity:1}}  
+ transition={{delay:.2}}
  >
    Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up to date with announcements and our launch deals.
    </Typography>
-      </ThemeProvider>
+      
 
          
 
@@ -79,17 +109,38 @@ function Desktop() {
 {/* INPUTFIELDS!! */}
     <Box>
        <TextField 
+       error={ emailText.includes('@') ? false : errorColor}  helperText={emailText.includes('@') ? '' : emailError} onChange={(e) => setEmailText(e.target.value)} 
+       value={emailText} 
        label='Email Address' 
        InputProps={{
         endAdornment: 
         <InputAdornment position='end'>
-           <IconButton><ArrowForwardIosIcon/></IconButton>
-        </InputAdornment>
+
+         
+         <ThemeProvider theme={cautionTheme}>
+         <IconButton>
+            <ReportIcon color='primary' />
+          </IconButton>
+
+         </ThemeProvider>
+
+           <IconButton >
+            <ArrowForwardIosIcon 
+             onClick={btnHandler}
+             />
+
+            </IconButton>
+
+        </InputAdornment>,
+        style:{
+          borderRadius:'25px',
+         
+        }
        }} 
       sx={{
         width:{
-          sm: '99%' , //600
-          lg: '80%' //1200
+          sm: '93%' , //600
+          lg: '92%' //1200
         }
       }}
        />
@@ -104,7 +155,7 @@ function Desktop() {
         src={heroDesktop}
         sx={{
           width:{
-          sm: '320px' , // 600 
+          sm: '350px' , // 600 
           md: '400px' , //900
           lg: '581px' //1200 
         }, 
@@ -123,31 +174,7 @@ function Desktop() {
       }}
         />
     </Box>
-    
-    <Box component='img' 
-           src={pattern} 
-           sx=
-           {{
-            opacity:'38%',
-            position:'absolute',
-            width:{
-              sm: '446px' , //600
-              lg: '694px' //1200
-            },
-            height:{
-              sm: '720px' ,//600
-              lg: '732px' //1200
-            },
-            borderTopLeftRadius:{
-              sm: '30px' , //600
-              lg: '30px'
-            },
-            borderBottomLeftRadius:{
-              sm: '30px' , //600
-             lg: '30px'
-            }
-            }} />
-
+   
 
    </Stack>
 
