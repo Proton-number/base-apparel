@@ -86,7 +86,7 @@ const cautionTheme = createTheme({
       sx={{fontSize:{sm:'83px', lg:'110px'}}} 
       initial={{opacity:0}} 
       animate={{opacity:1}}  
-      transition={{delay:.2}}
+      transition={{delay:.4}}
       >  
       <span> We're</span> <b>Coming soon</b> 
       </Typography>
@@ -99,7 +99,7 @@ component={motion.p}
  variant='subtitle1'
  initial={{opacity:0}} 
  animate={{opacity:1}}  
- transition={{delay:.2}}
+ transition={{delay:.3}}
  >
    Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up to date with announcements and our launch deals.
    </Typography>
