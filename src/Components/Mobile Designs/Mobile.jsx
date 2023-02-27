@@ -61,8 +61,13 @@ const cautionTheme = createTheme({
           <Box component='img' src={logo} />
          </Box>
 
-         <Box>
-          <Box component='img' src={heroMobile} />
+         <Box 
+         style={{
+          display:'flex',
+          justifyContent:'center'
+         }}
+         >
+          <Box component='img' src={heroMobile} sx={{width:'100%', height:'auto'}} />
          </Box>
 
          <Stack spacing={4}>
@@ -127,7 +132,7 @@ component={motion.p}
         }
        }} 
       sx={{
-        width:'95%'
+        width:'100%'
       }}
        />
     </Box>
