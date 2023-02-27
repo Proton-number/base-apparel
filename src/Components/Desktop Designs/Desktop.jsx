@@ -14,7 +14,7 @@ function Desktop() {
   const [emailText, setEmailText] = useState('')
   const [emailError, setEmailError] = useState('')
   const [errorColor, setErrorColor] = useState(false)
-
+  const [showCaution, setshowCaution] = useState(false)
 
 
   
@@ -22,10 +22,13 @@ const btnHandler = () =>{
   if ( !emailText.includes('@')  ){
     setEmailError('Please provide a valid email')
     setErrorColor(true)
+    setshowCaution(true)
     } 
     else{
       setErrorColor(false)
-      setEmailText(emailText)
+    setshowCaution(false)
+      setEmailText('')
+      setEmailError('')
     }
 }
 
@@ -33,7 +36,7 @@ const btnHandler = () =>{
 const cautionTheme = createTheme({
   palette:{
     primary:{
-          main:'hsla(0, 95%, 50%, 0.87)',
+          main:'hsl(359, 86%, 49%)',
       }
   },
 
@@ -117,12 +120,14 @@ component={motion.p}
         <InputAdornment position='end'>
 
          
-         <ThemeProvider theme={cautionTheme}>
-         <IconButton>
-            <ReportIcon color='primary' />
-          </IconButton>
-
-         </ThemeProvider>
+         { emailText.includes('@') ? false :  showCaution && (
+          <ThemeProvider theme={cautionTheme}>
+          <IconButton>
+             <ReportIcon color='primary'  />
+           </IconButton>
+ 
+          </ThemeProvider>
+         )}
 
            <IconButton >
             <ArrowForwardIosIcon 
