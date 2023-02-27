@@ -139,7 +139,6 @@ component={motion.p}
         </InputAdornment>,
         style:{
           borderRadius:'25px',
-         
         }
        }} 
       sx={{
