@@ -4,7 +4,6 @@ import logo from '/src/images/logo.svg'
 import heroMobile from "/src/images/hero-mobile.jpg"
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ReportIcon from '@mui/icons-material/Report';
-import { motion } from 'framer-motion'
 import './Mobile.css'
 
 
@@ -73,12 +72,8 @@ const cautionTheme = createTheme({
          <Stack spacing={4}>
           
          <Typography 
-      component={motion.h1} 
       variant= 'h2'  
       style={{textTransform:'uppercase', textAlign:'center'}} 
-      initial={{opacity:0}} 
-      animate={{opacity:1}}  
-      transition={{delay:.4}}
       >  
       <span> We're</span> <b>Coming soon</b> 
       </Typography>
@@ -88,11 +83,7 @@ const cautionTheme = createTheme({
   color:'hsl(4, 46%, 70%)',
   textAlign:'center'
 }}
-component={motion.p}
  variant='subtitle1'
- initial={{opacity:0}} 
- animate={{opacity:1}}  
- transition={{delay:.3}}
  >
    Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up to date with announcements and our launch deals.
    </Typography>
