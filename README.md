@@ -37,7 +37,7 @@ Users should be able to:
 ### Links
 
 - Solution URL:https://www.frontendmentor.io/solutions/base-apparel-coming-soon-8VOqZ_IZD6
-- Live Site URL: https://base-apparelv.netlify.app/
+- Live Site URL: https://base-apparelcomingsooon.netlify.app/
 
 ## My process
 This one really made me think a lot! especially withe  time off i took to focus on my academics. It was a good refreshing project to work on. I leaarnt new ways to style with material Ui and i get better with each project.
